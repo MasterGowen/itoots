@@ -15,12 +15,14 @@ class TicketForm(forms.ModelForm):
     captcha = CaptchaField()
 
 class AttachmentAdmin(admin.ModelAdmin):
+    list_display = ('filename', 'date', 'file')
     form = AttachmentForm
     fields = ('filename', 'file')
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'author_email', 'id', 'date')
+
+    list_display = ('subject', 'author_email', 'id', 'date', 'status_view')
     form = TicketForm
     fields = [
         'subject',
@@ -28,9 +30,10 @@ class TicketAdmin(admin.ModelAdmin):
         'author_email',
         'text',
         'file',
+        'status',
         'captcha',
     ]
-    readonly_fields = ['id', ]
+    readonly_fields = ['id', 'date']
 
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Attachment, AttachmentAdmin)
