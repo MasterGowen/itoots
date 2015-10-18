@@ -1,0 +1,14 @@
+Django==1.8.5
+django-extensions==1.5.7
+django-flat-theme==1.1.1
+django-rosetta==0.7.6
+django-simple-captcha==0.4.6
+Jinja2==2.8
+MarkupSafe==0.23
+microsofttranslator==0.5
+mysqlclient==1.3.6
+Pillow==3.0.0
+polib==1.0.7
+requests==2.8.1
+six==1.10.0
+Werkzeug==0.10.4
