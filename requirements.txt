@@ -1,6 +1,10 @@
 Django==1.8.5
+django-appconf==1.0.1
+django-debug-toolbar==1.4
 django-extensions==1.5.7
 django-flat-theme==1.1.1
+django-jsonfield==0.9.15
+django-reversion==1.9.3
 django-rosetta==0.7.6
 django-simple-captcha==0.4.6
 Jinja2==2.8
@@ -11,4 +15,5 @@ Pillow==3.0.0
 polib==1.0.7
 requests==2.8.1
 six==1.10.0
+sqlparse==0.1.16
 Werkzeug==0.10.4

@@ -31,3 +31,7 @@ if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns.append(
         url(r'^rosetta/', include('rosetta.urls')),
     )
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))

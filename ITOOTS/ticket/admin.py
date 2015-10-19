@@ -1,6 +1,7 @@
 from django.contrib import admin
+from reversion.admin import VersionAdmin
 from django import forms
-from .models import Ticket, Attachment
+from .models import Ticket, Attachment, Action
 from captcha.fields import CaptchaField
 
 class AttachmentForm(forms.ModelForm):
@@ -20,7 +21,7 @@ class AttachmentAdmin(admin.ModelAdmin):
     fields = ('filename', 'file')
 
 
-class TicketAdmin(admin.ModelAdmin):
+class TicketAdmin(VersionAdmin):
 
     list_display = ('subject', 'author_email', 'id', 'date', 'status_view')
     form = TicketForm
@@ -37,3 +38,4 @@ class TicketAdmin(admin.ModelAdmin):
 
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Attachment, AttachmentAdmin)
+admin.site.register(Action)

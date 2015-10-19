@@ -59,6 +59,8 @@ class Ticket(models.Model):
     def save(self):
         if self.id == 'None':
             self.id = key()
+        a = Action(ticket=self)
+        a.save()
         super(Ticket, self).save()
 
     def status_view(self):
@@ -88,3 +90,14 @@ class Ticket(models.Model):
             return self.status
 
     status_view.allow_tags = True
+
+
+class Action(models.Model):
+    id = models.CharField(max_length=32, primary_key=True, default='None')
+    ticket = models.ForeignKey(Ticket)
+    date = models.DateField(auto_now_add=True, null=True)
+
+    def save(self):
+        if self.id == 'None':
+            self.id = key()
+        super(Action, self).save()
